@@ -1,5 +1,5 @@
 package qq;
-//È¸»ç µî·Ï
+//íšŒì‚¬ ë“±ë¡
 
 import java.awt.Button;
 import java.awt.Color;
@@ -31,7 +31,7 @@ public class Admin_AddCom {
 		JTextField jf1 = new JTextField();
 		JTextField jf2 = new JTextField();
 		JTextField jf3 = new JTextField();
-		JButton btn1 = new JButton("µî·ÏÇÏ±â");
+		JButton btn1 = new JButton("ë“±ë¡í•˜ê¸°");
 		ImageIcon backIcon = new ImageIcon("C:/Users/soldesk/Desktop/back.png");
 		ImageIcon homeIcon = new ImageIcon("C:/Users/soldesk/Desktop/home.png");
 		JButton btn2 = new JButton(backIcon);
@@ -39,10 +39,10 @@ public class Admin_AddCom {
 		
 
 		JLabel l3 = new JLabel("Company");
-		JLabel l4 = new JLabel("È¸»ç µî·Ï");
-		JLabel l5 = new JLabel("È¸»ç¸í");
-		JLabel l6 = new JLabel("È¸»çÁ¾·ù");
-		JLabel l7 = new JLabel("È¸»çÀ§Ä¡");
+		JLabel l4 = new JLabel("íšŒì‚¬ ë“±ë¡");
+		JLabel l5 = new JLabel("íšŒì‚¬ëª…");
+		JLabel l6 = new JLabel("íšŒì‚¬ì¢…ë¥˜");
+		JLabel l7 = new JLabel("íšŒì‚¬ìœ„ì¹˜");
 		
 		btn2.setBounds(12, 20, 70, 48);
 		btn3.setBounds(300, 20, 70, 48);
@@ -59,7 +59,7 @@ public class Admin_AddCom {
 		btn1.setBounds(160, 460, 90, 40);
 		l3.setBounds(175, 510, 90, 40);
 		l4.setBounds(140, 25, 150, 40);
-		l4.setFont(new Font("HY°ß°íµñ", Font.BOLD,25));
+		l4.setFont(new Font("HYê²¬ê³ ë”•", Font.BOLD,25));
 		l4.setForeground(Color.WHITE);
 		
 		f.add(btn1);
@@ -76,7 +76,24 @@ public class Admin_AddCom {
 		f.add(p1);
 		f.setLayout(null);
 		f.setVisible(true);
+		
+		
+		//ë“±ë¡í•˜ê¸° 
+		
+		btn1.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(jf1.getText().equals("")||jf2.getText().equals("")||jf3.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "ì…ë ¥ì´ ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
+					return;
+				}else {
+					JOptionPane.showMessageDialog(null, "ë“±ë¡ë˜ì—ˆìŠµë‹ˆë‹¤.");
+				}
+				
+			}
+			
+		});
 		
 		btn2.addActionListener(new ActionListener() {
 			@Override
