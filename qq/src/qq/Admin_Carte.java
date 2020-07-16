@@ -1,6 +1,7 @@
 package qq;
-//½Ä´ÜÇ¥ µî·Ï ¼öÁ¤
+//ì‹ë‹¨í‘œ ë“±ë¡ ìˆ˜ì •
 
+import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Container;
@@ -22,8 +23,17 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 public class Admin_Carte {
-	static String company[] = {"Tasty Co.", "»ï¼º¹°»ê", "È¦¸®¹°»ê", "Á¦ÀÌ¿£ÁöÄÄÆÛ´Ï", "·Î¿­ÄÄÆÛ´Ï"};
-	static String date[] = {"2020³â 7¿ù 1ÁÖÂ÷", "2020³â 7¿ù 2ÁÖÂ÷", "2020³â 7¿ù 3ÁÖÂ÷", "2020³â 7¿ù 4ÁÖÂ÷"};
+	static String company[] = {"Tasty Co.", "ì‚¼ì„±ë¬¼ì‚°", "í™€ë¦¬ë¬¼ì‚°", "ì œì´ì—”ì§€ì»´í¼ë‹ˆ", "ë¡œì—´ì»´í¼ë‹ˆ"};
+	static String date[] = {"2020ë…„ 7ì›” 1ì£¼ì°¨", "2020ë…„ 7ì›” 2ì£¼ì°¨", "2020ë…„ 7ì›” 3ì£¼ì°¨", "2020ë…„ 7ì›” 4ì£¼ì°¨"};
+	
+	private final Object [] colNames = {"ì›”","í™”","ìˆ˜","ëª©", "ê¸ˆ"};
+	private Object [][] datas = {{" "," "," "," ", " "},
+			 						{" "," "," "," ", " "},
+	 								{" "," "," "," ", " "},
+	 								{" "," "," "," ", " "},
+			 						{" "," "," "," ", " "}};
+	
+	
 	
 	Admin_Carte() {
 	
@@ -39,18 +49,18 @@ public class Admin_Carte {
 	
 	JComboBox combo1 = new JComboBox<String>(company);
 	JComboBox combo2 = new JComboBox<String>(date);
-	JButton btn1 = new JButton("Ãß°¡");
-	JButton btn2 = new JButton("Á¦°Å");
-	JButton btn3 = new JButton("µî·Ï");
-	JButton btn4 = new JButton("¼öÁ¤");
+	JButton btn1 = new JButton("ì¶”ê°€");
+	JButton btn2 = new JButton("ì œê±°");
+	JButton btn3 = new JButton("ë“±ë¡");
+	JButton btn4 = new JButton("ìˆ˜ì •");
 	ImageIcon backIcon = new ImageIcon("C:/Users/soldesk/Desktop/back.png");
 	ImageIcon homeIcon = new ImageIcon("C:/Users/soldesk/Desktop/home.png");
 	JButton btn5 = new JButton(backIcon);
 	JButton btn6 = new JButton(homeIcon);
 	
 	JLabel l3 = new JLabel("Company");
-	JLabel l4 = new JLabel("½Ä´ÜÇ¥ µî·Ï/¼öÁ¤");
-	JLabel l5 = new JLabel("È¸»ç ¼±ÅÃ");
+	JLabel l4 = new JLabel("ì‹ë‹¨í‘œ ë“±ë¡/ìˆ˜ì •");
+	JLabel l5 = new JLabel("íšŒì‚¬ ì„ íƒ");
 	
 	l5.setBounds(30, 95, 100, 35);
 	
@@ -68,29 +78,21 @@ public class Admin_Carte {
 	btn4.setBounds(220, 470, 70, 35);
 	l3.setBounds(175, 510, 90, 40);
 	l4.setBounds(105, 25, 180, 40);
-	l4.setFont(new Font("HY°ß°íµñ", Font.BOLD,22));
+	l4.setFont(new Font("HYê²¬ê³ ë”•", Font.BOLD,22));
 	l4.setForeground(Color.WHITE);
 	
-	//Å×ÀÌºí
-	JTable table2 = new JTable();
-	table2.setBorder(new LineBorder(new Color(0, 0, 0)));
-	table2.setModel(new DefaultTableModel(
-		new Object[][] {
-			{"\uAD6C\uBD84/\uC694\uC77C", "\uC6D4", "\uD654", "\uC218", "\uBAA9", "\uAE08"},
-			{"", null, null, null, null, null},
-			{"", null, null, null, null, null},
-			{null, null, null, null, null, null},
-			{null, null, null, null, null, null},
-		},
-		new String[] {
-			"\uAD6C\uBD84/\uC694\uC77C", "\uC6D4", "\uD654", "\uC218", "\uBAA9", "\uAE08"
-		}
-	));
-	table2.setBounds(30, 220, 326, 200);
-	table2.setRowHeight(40);
-	f.getContentPane().add(table2);
+	//í…Œì´ë¸”
+	JPanel p2 = new JPanel(new BorderLayout());
+	p2.setBounds(30, 220, 326, 224);
+	JTable table = new JTable(datas, colNames);
+	JScrollPane jsp = new JScrollPane(table);
+	p2.add(jsp,"Center");
+	table.setRowHeight(40);
 	
-
+	
+	
+	
+	f.add(p2);
 	f.add(btn1);
 	f.add(btn2);
 	f.add(btn3);
